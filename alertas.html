@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Alertas Inteligentes</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#645757,#6d6060);
+    color:white;
+}
+
+
+.app{
+    min-height:100vh;
+}
+
+
+header{
+    padding:20px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.back{
+    color:white;
+    text-decoration:none;
+    font-size:24px;
+}
+
+.user{
+    background:#22c55e;
+    padding:10px 15px;
+    border-radius:50px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+
+h1{
+    margin-top:15px;
+    font-size:26px;
+}
+
+p{
+    opacity:.8;
+}
+
+
+.search{
+    margin-top:15px;
+    display:flex;
+    background:rgba(255,255,255,0.1);
+    padding:10px;
+    border-radius:12px;
+}
+
+.search input{
+    width:100%;
+    border:none;
+    outline:none;
+    background:transparent;
+    color:white;
+}
+
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    padding:20px;
+}
+
+.card{
+    background:rgba(255,255,255,0.06);
+    padding:15px;
+    border-radius:15px;
+    text-align:center;
+}
+
+.card h3{
+    font-size:12px;
+    opacity:.7;
+}
+
+.card span{
+    font-size:22px;
+    font-weight:bold;
+    color:#38bdf8;
+}
+
+
+.filters{
+    display:flex;
+    gap:10px;
+    padding:0 20px;
+    overflow-x:auto;
+}
+
+.filters button{
+    border:none;
+    padding:8px 15px;
+    border-radius:20px;
+    cursor:pointer;
+    background:rgba(255,255,255,0.1);
+    color:white;
+    transition:.3s;
+}
+
+.filters button:hover{
+    background:#38bdf8;
+}
+
+
+.container{
+    padding:20px;
+}
+
+.alert{
+    background:rgba(255,255,255,0.06);
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:15px;
+    border-left:5px solid #38bdf8;
+}
+
+.alert h2{
+    font-size:18px;
+}
+
+.tags{
+    font-size:12px;
+    opacity:.7;
+    margin-bottom:10px;
+}
+
+.buttons{
+    margin-top:15px;
+    display:flex;
+    gap:10px;
+}
+
+.btn{
+    flex:1;
+    padding:10px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.btn1{
+    background:#38bdf8;
+    color:black;
+}
+
+.btn2{
+    background:#22c55e;
+    color:black;
+}
+
+.btn3{
+    background:#ef4444;
+    color:white;
+}
+
+
+.panel{
+    margin:20px;
+    padding:15px;
+    border-radius:15px;
+    background:rgba(255,255,255,0.06);
+}
+
+.log{
+    font-size:13px;
+    opacity:.8;
+    margin-top:10px;
+}
+
+
+nav{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    display:flex;
+    justify-content:space-around;
+    padding:15px;
+    background:rgba(0,0,0,0.4);
+    backdrop-filter:blur(10px);
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<header>
+
+
+
+<h1>📡 Alertas en tiempo real</h1>
+<p>Monitoreo inteligente de seguridad ciudadana</p>
+
+<div class="search">
+    🔍
+    <input id="busqueda" onkeyup="buscar()" placeholder="Buscar alertas...">
+</div>
+
+</header>
+
+
+<div class="stats">
+    <div class="card"><h3>Total</h3><span id="t1">24</span></div>
+    <div class="card"><h3>Activas</h3><span id="t2">8</span></div>
+    <div class="card"><h3>Críticas</h3><span id="t3">3</span></div>
+    <div class="card"><h3>Hoy</h3><span id="t4">15</span></div>
+</div>
+
+
+<div class="filters">
+    <button onclick="filtro('todo')">Todos</button>
+    <button onclick="filtro('robo')">Robo</button>
+    <button onclick="filtro('accidente')">Accidente</button>
+    <button onclick="filtro('sospecha')">Sospecha</button>
+</div>
+
+
+<div class="container">
+
+<div class="alert robo">
+    <h2>🔴 Robo reportado</h2>
+    <div class="tags">Av. Santa clara • hace 10 min</div>
+
+    <p>Actividad delictiva detectada por múltiples usuarios.</p>
+
+    <div class="buttons">
+        <button class="btn btn1" onclick="ver('robo')">Ver</button>
+        <button class="btn btn2" onclick="compartir()">Compartir</button>
+        <button class="btn btn3" onclick="reportar()">Reportar</button>
+    </div>
+</div>
+
+<div class="alert accidente">
+    <h2>🟠 Accidente vehicular</h2>
+    <div class="tags">Ceres medio • hace 25 min</div>
+
+    <p>Colisión leve en vía principal.</p>
+
+    <div class="buttons">
+        <button class="btn btn1" onclick="ver('accidente')">Ver</button>
+        <button class="btn btn2" onclick="compartir()">Compartir</button>
+        <button class="btn btn3" onclick="reportar()">Reportar</button>
+    </div>
+</div>
+
+<div class="alert sospecha">
+    <h2>🟣 Actividad sospechosa</h2>
+    <div class="tags">Centro de lima • hace 1 hora</div>
+
+    <p>Movimientos inusuales detectados.</p>
+
+    <div class="buttons">
+        <button class="btn btn1" onclick="ver('sospecha')">Ver</button>
+        <button class="btn btn2" onclick="compartir()">Compartir</button>
+        <button class="btn btn3" onclick="reportar()">Reportar</button>
+    </div>
+</div>
+
+</div>
+
+
+<div class="panel">
+    <b>📊 Registro en vivo</b>
+    <div id="log" class="log">Sistema iniciado...</div>
+</div>
+
+<nav>
+    <a href="index.html">Inicio</a>
+    <a href="sos.html">SOS</a>
+    <a href="ubicacion.html">Mapa</a>
+    <a href="alertas.html">Alertas</a>
+</nav>
+
+</div>
+
+<script>
+
+
+
+function log(msg){
+    document.getElementById("log").innerText = msg;
+}
+
+function ver(tipo){
+    alert("🔎 Abriendo detalles de: " + tipo);
+    log("Se abrió detalle de " + tipo);
+}
+
+function compartir(){
+    alert("📤 Alerta compartida con contactos");
+    log("Alerta compartida");
+}
+
+function reportar(){
+    alert("🚨 Reporte enviado a autoridades");
+    log("Reporte enviado");
+}
+
+function filtro(tipo){
+    alert("Filtro aplicado: " + tipo);
+    log("Filtro: " + tipo);
+}
+
+function buscar(){
+    let val = document.getElementById("busqueda").value;
+    log("Buscando: " + val);
+}
+
+function perfil(){
+    alert("👤 Usuario conectado");
+}
+
+</script>
+
+</body>
+</html>

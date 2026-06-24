@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SafeCity Seguridad</title>
+
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+<div class="app">
+
+  
+    <header class="header">
+
+        <div>
+            <h1>🛡 Dangerzone</h1>
+            <p>Sistema inteligente de seguridad ciudadana</p>
+        </div>
+
+        <div class="usuario" onclick="abrirLogin()">
+            👤 LOGIN
+        </div>
+
+    </header>
+
+    
+    <div id="loginModal" class="modal">
+
+        <div class="modal-contenido">
+
+            <h2>Iniciar sesión</h2>
+
+            <input type="text" id="usuario" placeholder="Usuario">
+            <input type="password" id="clave" placeholder="Contraseña">
+
+            <button onclick="login()">Entrar</button>
+
+            <p onclick="cerrarLogin()" class="cerrar">Cerrar</p>
+
+        </div>
+
+    </div>
+
+   
+    <section class="hero">
+
+        <div class="texto">
+
+            <h2>Tu seguridad en tus manos</h2>
+
+            <p>
+                Con Dangerzone puedes enviar alertas, reportar robos y compartir tu ubicación en tiempo real con personas de confianza.
+            </p>
+
+            <div class="estado">
+                🟢 Sistema activo
+            </div>
+
+        </div>
+
+        <div class="emergencia">
+
+            <h3>Botón de emergencia</h3>
+
+            <button onclick="activarSOS()" class="btnSOS">
+                SOS
+            </button>
+
+            <p>Presiona en caso de peligro</p>
+
+        </div>
+
+    </section>
+
+    
+   <section class="panel">
+
+<div class="titulo-seccion">
+
+<h2>
+⚡ Acciones rápidas
+</h2>
+
+<p>
+Gestiona tu seguridad desde aquí
+</p>
+
+</div>
+
+
+<div class="cards">
+
+
+<a href="ubicacion.html" class="card seguridad">
+
+<div class="icon">
+📍
+</div>
+
+<div>
+
+<h3>
+Mi ubicación
+</h3>
+
+<p>
+GPS en tiempo real
+</p>
+
+<span>
+Activo
+</span>
+
+</div>
+
+</a>
+
+
+
+
+<a href="contactos.html" class="card seguridad">
+
+<div class="icon">
+👥
+</div>
+
+<div>
+
+<h3>
+Contactos
+</h3>
+
+<p>
+Red de emergencia
+</p>
+
+<span>
+3 contactos
+</span>
+
+</div>
+
+</a>
+
+
+
+
+<a href="alertas.html" class="card seguridad">
+
+<div class="icon">
+🚨
+</div>
+
+<div>
+
+<h3>
+Alertas
+</h3>
+
+<p>
+Zonas de riesgo
+</p>
+
+<span>
+Actualizado
+</span>
+
+</div>
+
+</a>
+
+<a href="sos.html" class="card peligro">
+
+<div class="icon">
+📝
+</div>
+
+<div>
+
+<h3>
+Denunciar
+</h3>
+
+<p>
+Enviar reporte
+</p>
+
+<span>
+Disponible
+</span>
+
+</div>
+
+</a>
+
+
+
+</div>
+
+</section>
+
+   
+    <section class="informacion">
+
+        <div class="box">
+            <h2>24/7</h2>
+            <p>Protección activa</p>
+        </div>
+
+        <div class="box">
+            <h2>105</h2>
+            <p>Policía Nacional</p>
+        </div>
+
+        <div class="box">
+            <h2>116</h2>
+            <p>Bomberos</p>
+        </div>
+
+    </section>
+
+    
+    <section class="reportes">
+
+<div class="titulo-seccion">
+
+<h2>
+📡 Centro de reportes
+</h2>
+
+<p>
+Actividad reciente de seguridad
+</p>
+
+</div>
+
+
+
+
+<div class="reporte nuevo">
+
+<div class="estado-icon">
+🔴
+</div>
+
+<div>
+
+<h3>
+Robo reportado
+</h3>
+
+<p>
+📍 Av. Santa clara
+</p>
+
+<small>
+Hace 5 minutos
+</small>
+
+</div>
+
+<div class="badge rojo-bg">
+Urgente
+</div>
+
+</div>
+
+
+
+
+
+
+<div class="reporte">
+
+<div class="estado-icon">
+🟠
+</div>
+
+<div>
+
+<h3>
+Accidente vehicular
+</h3>
+
+<p>
+📍 Zona Norte
+</p>
+
+<small>
+Hace 20 minutos
+</small>
+
+</div>
+
+<div class="badge naranja-bg">
+Atención
+</div>
+
+</div>
+
+
+
+
+
+
+
+<div class="reporte">
+
+<div class="estado-icon">
+🟣
+</div>
+
+<div>
+
+<h3>
+Actividad sospechosa
+</h3>
+
+<p>
+📍 Centro
+</p>
+
+<small>
+Hace 1 hora
+</small>
+
+</div>
+
+
+<div class="badge morado-bg">
+Revisar
+</div>
+
+</div>
+
+
+</section>
+
+   
+    <nav>
+
+        <a href="index.html">Inicio</a>
+        <a href="sos.html">SOS</a>
+        <a href="ubicacion.html">Mapa</a>
+        <a href="alertas.html">Alertas</a>
+
+    </nav>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
+
